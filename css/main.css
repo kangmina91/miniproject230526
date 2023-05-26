@@ -313,7 +313,7 @@ h1 {
     height: 100%;
     top: 750px;
     left: 350px;
-    transform: translate(100%, -50%);
+    transform: translate(120%, -50%);
     transition: 1s 0.2s;
 }
 

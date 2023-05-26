@@ -24,7 +24,7 @@ $(function () {
 
 
         // 이름 나오게 하기
-        $('.mainVisual .model.prev').text(c ? model[(c - 1) % model.length] : model[1]);
+        $('.mainVisual .model.prev').text(c ? model[(c - 1) % model.length] : model[3]);
         $('.mainVisual .model.next').text(c ? model[(c + 1) % model.length] : model[1]);
     });
 

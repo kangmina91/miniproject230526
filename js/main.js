@@ -12,7 +12,22 @@ $(function () {
         } else {
             $('.header').removeClass('on')
         }
-    })
+    });
+
+    // 메인 슬라이드 이름 저장
+    const model = ['SONATA The Edge', 'The all-new KONA Electric', 'IONIQ 6', ' CASPER']
+
+    // 메인 슬라이드 일어났을 때 애니메이션 작동하는 것 - 이게 메인 슬라이드 슬릭보다 앞에 있어야 함.
+    $('.mainSlide').on('init afterChange', function (e, s, c) {
+        let _this = $(this).find('.slick-current');
+        _this.addClass('on').siblings().removeClass('on');
+
+
+        // 이름 나오게 하기
+        $('.mainVisual .model.prev').text(c ? model[(c - 1) % model.length] : model[1]);
+        $('.mainVisual .model.next').text(c ? model[(c + 1) % model.length] : model[1]);
+    });
+
 
     // 메인 슬라이드
     $('.mainSlide').slick({
@@ -42,19 +57,9 @@ $(function () {
         $('.mainSlide').slick('slickNext')
     });
 
-    // 슬라이드 이름 저장
-    const model = ['SONATA The Edge', 'The all-new KONA Electric', 'IONIQ 6', ' CASPER']
-
-    // 슬라이드 일어났을 때 애니메이션 작동하는 것 
-    $('.mainSlide').on('init afterChange', function (e, s, c) {
-        let _this = $(this).find('.slick-current');
-        _this.addClass('on').siblings().removeClass('on');
 
 
-        // 이름 나오게 하기
-        $('.mainVisual .model.prev').text(c ? model[(c - 1) % model.length] : model[1]);
-        $('.mainVisual .model.next').text(c ? model[(c + 1) % model.length] : model[1]);
-    });
+
 
     // 이름 클릭 시 슬라이드
     $('.mainVisual .model.prev').on('click', function () {
@@ -116,6 +121,28 @@ $(function () {
     // 밑에 내려갔을 때 버튼 누르면 스크롤 올라가는 기능
     $('.toTop').on('click', function () {
         $('html, body').animate({ scrollTop: 0 }, 500)
+    })
+
+    // 모바일에서 메뉴 클릭 시 서브 메뉴 등장
+    $('.header .gnb>ul>li').on('click', function (e) {
+        if ($('.header .gnb').hasClass('on')) {
+            e.preventDefault();
+            $(this).addClass('on').siblings().removeClass('on');
+        }
+
+
+
+    });
+
+    // 모바일 메뉴 아이콘 클릭 시 메뉴 열고 닫기
+    $('.mopen').on('click', function () {
+        $('.header .gnb').toggleClass('on');
+        $('.header').toggleClass('on');
+    });
+
+    // 리사이즈
+    $(window).on('resize', function () {
+        $('.header .gnb').removeClass('on');
     })
 
 

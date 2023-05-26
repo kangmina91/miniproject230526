@@ -2,6 +2,10 @@
     padding: 100px 0;
 }
 
+h1 {
+    font-size: 0;
+}
+
 .inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -40,15 +44,18 @@
     /* border-bottom: 1px solid #ddd; */
 }
 
-.header {}
-
 .header.on {
     background: #fff;
 }
 
+.header h1 {
+    position: fixed;
+    z-index: 1000;
+}
+
 .header .inner {
     display: flex;
-    align-items: center;
+    line-height: 100px;
     height: 100px;
     transition: 0.5s;
 }
@@ -57,9 +64,16 @@
     height: 100px;
 }
 
+
+/* a를 펴서 영역을 넓게 해주는 법 */
+.header a {
+    display: block;
+}
+
 .header .gnb {
     margin: 0 0 0 auto;
 }
+
 
 .header .gnb>ul {
     display: flex;
@@ -70,14 +84,6 @@
     position: relative;
     word-break: keep-all;
 }
-
-
-.header .gnb>ul>li>a {
-    display: block;
-    line-height: 100px;
-
-}
-
 
 
 .header .gnb>ul>li .sub {
@@ -101,6 +107,7 @@
     top: 90px;
     opacity: 1;
     visibility: visible;
+    display: block;
 }
 
 .header .gnb>ul>li .sub::before {
@@ -169,7 +176,112 @@
 
 }
 
+/* 모바일 메뉴 아이콘 */
+.mopen {
+    display: none;
+}
 
+
+/* 모바일 메뉴 만들기 */
+@media (max-width: 768px) {
+
+    .mopen {
+        display: block;
+
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        z-index: 999;
+
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .mopen i {
+        font-size: 20px;
+        padding: 5px;
+        background: #f7f7f7;
+        border-radius: 3px;
+    }
+
+
+    .header {
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .header.on h1 {
+        position: fixed;
+        z-index: 1000;
+    }
+
+
+    .header .gnb>ul>li>a {
+        line-height: 40px;
+        border-bottom: 1px solid tomato;
+    }
+
+    .header .gnb {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        background: #fff;
+        width: calc(100% - 90px);
+        height: 100vh;
+        z-index: 999;
+
+        padding: 100px 30px;
+    }
+
+
+    .header .gnb.on {
+        left: 0;
+    }
+
+    .header .gnb>ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+
+    .header .gnb>ul>li {
+        position: relative;
+
+    }
+
+    .header .sub {
+        display: none;
+
+        position: static;
+
+        transform: translate(0, 0);
+
+        border: none;
+        text-align: left;
+        width: auto;
+        line-height: 40px;
+    }
+
+
+    .header .gnb>ul>li:hover .sub {
+        display: none;
+    }
+
+    .header .gnb>ul>li.on .sub {
+        display: block;
+    }
+
+
+    .header .sub>li~li {
+        border-top: 1px solid #ddd;
+    }
+
+
+    .header .utilWrap {
+        display: none;
+    }
+
+}
 
 
 
@@ -192,22 +304,24 @@
     overflow: hidden;
 }
 
+
+
 /* 메인 슬라이드 자동차 원 위치 박스 */
 .mainVisual figure .car {
     position: absolute;
-    width: 100%;
+    width: 1200px;
     height: 100%;
-    top: 700px;
-    left: 0;
+    top: 750px;
+    left: 350px;
     transform: translate(100%, -50%);
-    transition: 1s 0.5s;
+    transition: 1s 0.2s;
 }
+
 
 /* 메인 슬라이드 자동차 애니메이션 */
 .mainVisual figure.on .car {
-    transform: translate(15%, -50%);
+    transform: translate(0%, -50%);
 }
-
 
 /* 슬라이드 제목-내용 위치 */
 .mainVisual .mainSlide .slogan {
@@ -218,6 +332,35 @@
     width: 1200px;
     padding: 0 15px;
 }
+
+@media (max-width: 768px) {
+
+    .mainVisual figure .car {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 900px;
+        left: 250px;
+        transform: translate(100%, -50%);
+        transition: 1s 0.2s;
+    }
+
+    .mainVisual figure.on .car {
+        transform: translate(-50%, -50%);
+    }
+
+    .mainVisual .mainSlide .slogan {
+        position: absolute;
+        top: 150px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        padding: 0 15px;
+    }
+
+}
+
+
 
 /* 슬라이드 제목 모양 */
 .mainVisual .mainSlide .slogan strong {
@@ -421,7 +564,7 @@
     background: #007fa8;
 }
 
-
+/* 상품 슬라이드  */
 .product {
     position: relative;
 
@@ -503,7 +646,7 @@
 
 
 
-
+/* 상품 슬라이드 화살표 */
 .product .productArrows {
     position: absolute;
     top: 55%;
@@ -547,7 +690,7 @@
 
 }
 
-/* 1등 리본 가상요소 */
+/* 상품 슬라이드 1등 리본 가상요소 */
 .productSlide .num1::after {
     content: "1위";
     position: absolute;

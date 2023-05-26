@@ -187,6 +187,7 @@
 /* 메인 슬라이드 자동차 기준 영역*/
 .mainVisual .mainSlide figure {
     position: relative;
+    width: 1200px;
     height: 950px;
     overflow: hidden;
 }
@@ -194,16 +195,17 @@
 /* 메인 슬라이드 자동차 원 위치 박스 */
 .mainVisual figure .car {
     position: absolute;
-    width: 1200px;
-    top: 425px;
-    left: 50%;
+    width: 100%;
+    height: 100%;
+    top: 700px;
+    left: 0;
     transform: translate(100%, -50%);
-    transition: 1s 0.1s;
+    transition: 1s 0.5s;
 }
 
 /* 메인 슬라이드 자동차 애니메이션 */
 .mainVisual figure.on .car {
-    transform: translate(-50%, -50%);
+    transform: translate(15%, -50%);
 }
 
 

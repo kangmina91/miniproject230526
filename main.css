@@ -1,0 +1,847 @@
+.sec {
+    padding: 100px 0;
+}
+
+.inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.tit {
+    margin: 0 auto 50px auto;
+}
+
+.tit h2 {
+    margin: 0 0 18px 0;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+.tit p {
+    word-break: keep-all;
+    line-height: 20px;
+    font-size: 16px;
+    text-align: center;
+    color: #575757;
+}
+
+
+.wrapper {}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    /* border-bottom: 1px solid #ddd; */
+}
+
+.header {}
+
+.header.on {
+    background: #fff;
+}
+
+.header .inner {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    transition: 0.5s;
+}
+
+.header.on .inner {
+    height: 100px;
+}
+
+.header .gnb {
+    margin: 0 0 0 auto;
+}
+
+.header .gnb>ul {
+    display: flex;
+    gap: 40px;
+}
+
+.header .gnb>ul>li {
+    position: relative;
+    word-break: keep-all;
+}
+
+
+.header .gnb>ul>li>a {
+    display: block;
+    line-height: 100px;
+
+}
+
+
+
+.header .gnb>ul>li .sub {
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100px;
+    border: 1px solid #ddd;
+    background: #fff;
+    text-align: center;
+    line-height: 40px;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+
+}
+
+.header .gnb>ul>li:hover .sub {
+    top: 90px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.header .gnb>ul>li .sub::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+
+
+}
+
+.header .gnb>ul>li .sub li {
+    position: relative;
+    background: #fff;
+
+}
+
+.header .gnb>ul>li .sub li a {
+    display: block;
+}
+
+
+.header .gnb>ul>li .sub li~li {
+    border-top: 1px solid #ddd;
+}
+
+/* 상단 메뉴 오른쪽 */
+.header .utilWrap {
+    position: relative;
+}
+
+.header .util {
+    display: table;
+    table-layout: fixed;
+    margin: 0 -28px 0 90px;
+
+}
+
+.header .util>* {
+    display: table-cell;
+    position: relative;
+}
+
+.header .util i {
+    font-size: 20px;
+    width: 45px;
+}
+
+.header .util>:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    /* 포지션을 써도 박스가 된다 */
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -50%);
+    /* 중앙에 오는 공식 */
+    width: 1px;
+    height: 12px;
+    background: #000000;
+    margin: 0 0 0 8px;
+
+}
+
+
+
+
+
+
+.mainVisual {
+    position: relative;
+    height: 950px;
+    background: url(../images/car_background.jpg) no-repeat center center/cover;
+
+}
+
+
+
+
+/* 메인 슬라이드 자동차 기준 영역*/
+.mainVisual .mainSlide figure {
+    position: relative;
+    height: 950px;
+    overflow: hidden;
+}
+
+/* 메인 슬라이드 자동차 원 위치 박스 */
+.mainVisual figure .car {
+    position: absolute;
+    width: 100%;
+    top: 425px;
+    left: 50%;
+    transform: translate(100%, -50%);
+    transition: 1s 0.5s;
+}
+
+/* 메인 슬라이드 자동차 애니메이션 */
+.mainVisual figure.on .car {
+    transform: translate(-35%, -50%);
+}
+
+
+/* 슬라이드 제목-내용 위치 */
+.mainVisual .mainSlide .slogan {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    padding: 0 15px;
+}
+
+/* 슬라이드 제목 모양 */
+.mainVisual .mainSlide .slogan strong {
+    display: block;
+    margin: 0 0 20px 0;
+    font-size: 80px;
+    font-weight: 500;
+    color: #000000;
+    /* text-shadow: 0 0 3px rgba(255, 255, 255, 0.3); */
+}
+
+/* 슬라이드 내용 모양*/
+.mainVisual .mainSlide .slogan p {
+    margin: 0 0 30px 0;
+    font-size: 25px;
+    font-weight: 500;
+    color: #000000;
+    /* text-shadow: 0 0 3px rgba(255, 255, 255, 0.3); */
+}
+
+
+/* 재생 버튼 */
+.mainVisual .slideBtn .btnPause {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #575757;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    padding: 9px;
+    cursor: pointer;
+    margin: 0 0 -287px 60px;
+    color: #fff;
+    font-size: 12px;
+}
+
+/* 가상 정지  */
+.mainVisual .slideBtn .btnPause::before {
+    content: "\ea3b";
+    font-family: xeicon;
+
+
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-45%, 50%);
+}
+
+
+/* 가상 재생*/
+.mainVisual .slideBtn .btnPause.on::before {
+    content: "\ea3e";
+}
+
+
+
+/* 메인 슬라이드 앞 이름 */
+.mainVisual .model.prev {
+    content: "";
+    position: absolute;
+    top: 465px;
+    left: 50%;
+    margin: 0 0 0 -585px;
+    transform: translate(0%, 0);
+    font-size: 20px;
+}
+
+/* 메인 슬라이드 뒤 이름 */
+.mainVisual .model.next {
+    content: "";
+    position: absolute;
+    top: 465px;
+    left: 50%;
+    margin: 0 0 0 585px;
+    transform: translate(-100%, 0);
+    font-size: 20px;
+}
+
+
+/* 화살표 반응형으로 만들기 1400px임*/
+.mainVisual .arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    max-width: 1400px;
+    width: 100%;
+}
+
+
+/* 화살표 아이콘 모양 */
+.mainVisual .arrows i {
+    font-size: 50px;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0px;
+    transform: translate(0%, -50%);
+
+}
+
+/* 왼쪽 화살표 */
+.mainVisual .arrows .left {
+    position: absolute;
+    top: 0;
+    left: 15px;
+}
+
+/* 오른쪽 화살표 */
+.mainVisual .arrows .right {
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+
+/* 슬라이드 앞 퀵 메뉴 */
+.mainVisual .quickMenu {
+    position: relative;
+
+}
+
+.mainVisual .quickMenu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -250%);
+}
+
+.mainVisual .quickMenu ul li {
+    flex: 1;
+    width: 100px;
+    height: 100px;
+}
+
+.mainVisual .quickMenu ul>li::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #007fa8;
+    margin: 0 auto;
+    transition: 0.5s;
+}
+
+.mainVisual .quickMenu ul>li:hover::after {
+    width: 100%;
+}
+
+.mainVisual .quickMenu ul li img {
+    display: block;
+    margin: 0 auto 10px auto;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+.mainVisual .quickMenu ul p {
+    text-align: center;
+    vertical-align: middle;
+    word-break: keep-all;
+    font-size: 15px;
+    line-height: 20px;
+
+}
+
+
+
+/* 슬라이드 미니 버튼 위치 */
+.mainVisual .slick-dots {
+    position: absolute;
+    bottom: 300px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+
+.mainVisual .slick-dots>* {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+
+/* 슬라이드 미니 버튼 모양 */
+.mainVisual .slick-dots li button {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 0px;
+    width: 12px;
+    height: 12px;
+    border: none;
+    outline: none;
+}
+
+.mainVisual .slick-dots li.slick-active button {
+    background: #007fa8;
+}
+
+
+.product {
+    position: relative;
+
+
+}
+
+
+.product .con figure {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+
+}
+
+.product .con .box {
+    position: relative;
+    overflow: hidden;
+}
+
+
+.product .con figure .btn {
+    position: absolute;
+    bottom: -50px;
+    right: 25px;
+    transition: 0.5s;
+}
+
+.product .con figure .btn i {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    font-size: 30px;
+    border-radius: 50%;
+}
+
+/* hover는 모바일에서 작동 안한다 */
+.product .con figure:hover .btn {
+    bottom: 10px;
+}
+
+
+.product .con figure .cover {
+    position: absolute;
+    inset: 0 auto auto 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    transition: 1s;
+
+}
+
+
+
+.product .con .cover h3 {
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto 220px auto;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+/* hover는 모바일에서 작동 안한다 */
+.product figure:hover .cover {
+    inset: 0 auto auto 0;
+
+}
+
+
+
+
+
+
+
+
+
+.product .productArrows {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1400px;
+    width: 100%;
+}
+
+.product .productArrows i {
+    position: absolute;
+    top: 0;
+
+    padding: 10px;
+    color: #fff;
+    background: #333;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.product .productArrows .left {
+    left: 0;
+}
+
+.product .productArrows .right {
+    right: 0;
+}
+
+
+
+.productSlide {
+    margin: 0 -15px;
+}
+
+.productSlide figure {
+    padding: 0 15px;
+}
+
+.productSlide .num1 {
+    position: relative;
+
+}
+
+/* 1등 리본 가상요소 */
+.productSlide .num1::after {
+    content: "1위";
+    position: absolute;
+    right: -6%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    border-top: 20px solid #007fa8;
+    border-bottom: 20px solid #007fa8;
+    border-left: 20px solid #007fa8;
+    border-right: 10px solid transparent;
+    width: 50px;
+    color: #fff;
+    font-size: 14px;
+    vertical-align: bottom;
+    text-indent: -10px;
+    line-height: 0;
+}
+
+
+
+
+.productSlide .slick-dots {
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+.productSlide .slick-dots li {
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.productSlide .slick-dots li button {
+    font-size: 10px;
+    color: #fff;
+    background: #333;
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.productSlide .slick-dots li.slick-active button {
+    background: #007fa8;
+}
+
+
+
+/* 메인콘텐츠2 */
+.mainContent2 {
+    background: #fff;
+}
+
+
+.mainContent2 .con {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.mainContent2 .con figure {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+
+.mainContent2 .con figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+
+}
+
+.mainContent2 .con figure:hover img {
+    transform: scale(1.1);
+
+
+}
+
+.mainContent2 figure .cover {
+    position: absolute;
+    inset: 0 auto auto 100%;
+    width: 100%;
+    height: 100%;
+    /* background: rgb(0, 0, 255);
+    opacity: 0.5; */
+    /* opacity 는 안에 있는 요소들에도 투명도를 상속시킴 ex)글자라던가 */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 50px 30px;
+
+    /* transition: 0.5s; */
+}
+
+
+.mainContent2 .cover a {
+    background: #333;
+    padding: 5px 10px;
+    margin: auto 0 0 0;
+    align-self: flex-start;
+}
+
+.mainContent2 .cover h3 {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto 20px auto;
+
+}
+
+.mainContent2 .cover p {
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto 20px auto;
+    word-break: keep-all;
+
+}
+
+
+
+/* hover는 모바일에서 작동 안한다 */
+.mainContent2 figure:hover .cover {
+    inset: 0 auto auto 0;
+}
+
+
+
+
+
+/* 반응형 유튜브 동영상 박스 만들기 */
+.movieContent .responsiveBox {
+    position: relative;
+    background: tomato;
+    padding-bottom: 35.5%;
+    max-width: 1170px;
+}
+
+.movieContent .responsiveBox>* {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+/* 하단 배너 */
+.downBanner {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, 0);
+    /* 위치를 지정. 꼭대기에 붙이고 left 0과 right 0을 주니 박스가 퍼지더라 탑과바텀도 마찬가지*/
+    background: white;
+    height: 20px;
+    width: 300px;
+    transition: 0.5s;
+    /* 글자가 들어간 박스. 높이를 주지 않으면 아예 뜨지 않는다 */
+    text-align: center;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.8);
+    z-index: 999;
+}
+
+.downBanner.on {
+    height: 0;
+}
+
+
+/* 하단 배너 버튼 */
+.downBanner .btn {
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    color: black;
+    background: white;
+    border-radius: 10%;
+    font-size: 10px;
+    height: 20px;
+    width: 30px;
+    padding: 5px;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.8);
+    z-index: 950;
+
+}
+
+.downBanner .btn::after {
+    content: "";
+}
+
+.downBanner.on .btn::after {
+    content: "";
+}
+
+.downBanner.on .btn i {
+    transform: rotate(180deg);
+}
+
+
+
+
+
+.footer {
+    background: #1c1b1b;
+    color: #999;
+}
+
+
+
+.footer .top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+}
+
+.footerLogo {
+    width: 100px;
+}
+
+.footerLogo img {
+    width: 100%;
+}
+
+.footerMenu ul {
+    line-height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+.footerMenu .serviceCenter {
+    line-height: 50px;
+    font-size: 14px;
+}
+
+.footerMenu ul>li {
+    position: relative;
+    font-size: 14px;
+}
+
+.footerMenu ul>li~li::before {
+    content: "";
+    position: absolute;
+    /* 포지션을 써도 박스가 된다 */
+    top: 50%;
+    left: -10px;
+    transform: translate(-50%, -50%);
+    /* 중앙에 오는 공식 */
+    width: 1px;
+    height: 12px;
+    background: #ddd;
+}
+
+
+.footerAdress {
+    line-height: 50px;
+    border-top: 1px solid #999;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+
+.toTop {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+.toTop i {
+    background: white;
+    border-radius: 50%;
+    color: black;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
